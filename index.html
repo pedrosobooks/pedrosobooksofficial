@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedroso Content Hub - Contenido Inspirador y Educativo</title>
+    <meta name="description" content="Explora nuestros canales de YouTube dedicados a motivación, historia cubana, ciencia y cultura.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2f4a;
+            --navy-light: #2a4060;
+            --navy-dark: #0f1e2f;
+            --accent: #f4a261;
+            --accent-soft: #e76f51;
+            --cream: #fef9f3;
+            --text: #1a1a1a;
+            --text-light: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(244, 162, 97, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(231, 111, 81, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            opacity: 0;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInDown 0.8s ease 0.2s forwards;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInDown 0.8s ease 0.4s forwards;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        /* Channel Grid */
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .channel-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(26, 47, 74, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .channel-card:nth-child(1) { animation-delay: 0.1s; }
+        .channel-card:nth-child(2) { animation-delay: 0.2s; }
+        .channel-card:nth-child(3) { animation-delay: 0.3s; }
+        .channel-card:nth-child(4) { animation-delay: 0.4s; }
+        .channel-card:nth-child(5) { animation-delay: 0.5s; }
+        .channel-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .channel-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(26, 47, 74, 0.15);
+        }
+
+        .card-header {
+            height: 200px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-body h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-body p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            background: var(--cream);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--navy);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-soft);
+            transform: translateX(4px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo {
+            width: 60px;
+            height: 60px;
+            margin: 2rem auto 1rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .channels-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .intro h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--navy);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--navy-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo">
+                <svg viewBox="0 0 100 100" fill="white">
+                    <path d="M30 20 L35 30 L40 25 L35 40 L30 35 L25 50 L30 20 Z" opacity="0.8"/>
+                    <rect x="45" y="20" width="40" height="3" rx="1.5"/>
+                    <rect x="45" y="30" width="40" height="3" rx="1.5"/>
+                    <rect x="45" y="40" width="30" height="3" rx="1.5"/>
+                    <rect x="45" y="50" width="35" height="3" rx="1.5"/>
+                    <rect x="45" y="60" width="25" height="3" rx="1.5"/>
+                    <rect x="45" y="70" width="30" height="3" rx="1.5"/>
+                </svg>
+            </div>
+            <h1>Pedroso Content Hub</h1>
+            <p class="subtitle">Contenido que inspira, educa y conecta culturas</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="intro">
+            <h2>Nuestros Canales</h2>
+            <p>Explora una colección diversa de contenido en YouTube y Pinterest, desde mensajes motivacionales hasta historia cubana y ciencia fascinante.</p>
+        </div>
+
+        <div class="channels-grid">
+            <!-- Channel 1: Mensajes para los que no se rinden -->
+            <article class="channel-card">
+                <div class="card-header">
+                    <span class="card-icon">💪</span>
+                </div>
+                <div class="card-body">
+                    <h3>Mensajes para los que no se rinden</h3>
+                    <p>Inspiración diaria para seguir adelante. Frases motivacionales, historias de superación y mensajes que te impulsan a nunca rendirte.</p>
+                    <div class="card-meta">
+                        <span class="meta-badge">✨ Motivación</span>
+                        <span class="meta-badge">🎯 Inspiración</span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">
+                            ▶️ Ver en YouTube
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            📌 Pinterest
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Channel 2: Secretos de la Biblia Hoy -->
+            <article class="channel-card">
+                <div class="card-header">
+                    <span class="card-icon">📖</span>
+                </div>
+                <div class="card-body">
+                    <h3>Secretos de la Biblia Hoy</h3>
+                    <p>Descubre enseñanzas bíblicas aplicadas al mundo moderno. Reflexiones profundas sobre fe, vida y espiritualidad contemporánea.</p>
+                    <div class="card-meta">
+                        <span class="meta-badge">🙏 Fe</span>
+                        <span class="meta-badge">📚 Enseñanza</span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">
+                            ▶️ Ver en YouTube
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            📌 Pinterest
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Channel 3: Cubanos Exitosos en el Mundo -->
+            <article class="channel-card">
+                <div class="card-header">
+                    <span class="card-icon">🌟</span>
+                </div>
+                <div class="card-body">
+                    <h3>Cubanos Exitosos en el Mundo</h3>
+                    <p>Historias inspiradoras de cubanos que han dejado huella a nivel internacional. Talento, perseverancia y orgullo nacional.</p>
+                    <div class="card-meta">
+                        <span class="meta-badge">🇨🇺 Cuba</span>
+                        <span class="meta-badge">🏆 Éxito</span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">
+                            ▶️ Ver en YouTube
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            📌 Pinterest
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Channel 4: Frases Populares Cubanas -->
+            <article class="channel-card">
+                <div class="card-header">
+                    <span class="card-icon">💬</span>
+                </div>
+                <div class="card-body">
+                    <h3>Frases Populares Cubanas</h3>
+                    <p>El ingenio y la sabiduría del pueblo cubano. Frases, refranes y expresiones que definen nuestra cultura e historia.</p>
+                    <div class="card-meta">
+                        <span class="meta-badge">🇨🇺 Cultura</span>
+                        <span class="meta-badge">📜 Historia</span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">
+                            ▶️ Ver en YouTube
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            📌 Pinterest
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Channel 5: Generales Cubanos -->
+            <article class="channel-card">
+                <div class="card-header">
+                    <span class="card-icon">⚔️</span>
+                </div>
+                <div class="card-body">
+                    <h3>Generales Cubanos</h3>
+                    <p>La historia militar de Cuba (1868-1898). Héroes, batallas y estrategias que forjaron la independencia de la nación.</p>
+                    <div class="card-meta">
+                        <span class="meta-badge">🎖️ Historia Militar</span>
+                        <span class="meta-badge">🇨🇺 Independencia</span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">
+                            ▶️ Ver en YouTube
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            📌 Pinterest
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Channel 6: 30 Segundos de Ciencia -->
+            <article class="channel-card">
+                <div class="card-header">
+                    <span class="card-icon">🔬</span>
+                </div>
+                <div class="card-body">
+                    <h3>30 Segundos de Ciencia</h3>
+                    <p>Datos científicos fascinantes en formato rápido. Aprende algo nuevo cada día en solo medio minuto.</p>
+                    <div class="card-meta">
+                        <span class="meta-badge">🧬 Ciencia</span>
+                        <span class="meta-badge">⚡ Rápido</span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">
+                            ▶️ Ver en YouTube
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            📌 Pinterest
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Pedroso Publishing Company LLC</h3>
+        <p>Creando contenido de calidad que inspira y educa</p>
+        <div class="footer-logo">
+            <svg viewBox="0 0 100 100" fill="white">
+                <path d="M30 20 L35 30 L40 25 L35 40 L30 35 L25 50 L30 20 Z" opacity="0.6"/>
+                <rect x="45" y="20" width="40" height="3" rx="1.5"/>
+                <rect x="45" y="30" width="40" height="3" rx="1.5"/>
+                <rect x="45" y="40" width="30" height="3" rx="1.5"/>
+                <rect x="45" y="50" width="35" height="3" rx="1.5"/>
+            </svg>
+        </div>
+        <p style="font-size: 0.9rem; opacity: 0.6;">&copy; 2024 Pedroso Publishing Company LLC. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add intersection observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.channel-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
